@@ -28,8 +28,11 @@
   <div id="previsao">🔮 <span id="textoPrevisao">Carregando previsão...</span></div>
   <div id="loading">Aguarde...</div>
 
+  <!-- AQUI COMEÇA O SCRIPT -->
   <script>
-   fetch("https://raw.githubusercontent.com/xuelvis/magic/main/previsao.txt?" + new Date().getTime())
+    const previsaoURL = "https://raw.githubusercontent.com/xuelvis/magic/main/previsao.txt";
+
+    fetch(previsaoURL + "?t=" + new Date().getTime()) // força carregar sem cache
       .then(response => response.text())
       .then(texto => {
         document.getElementById("textoPrevisao").textContent = texto.trim();
@@ -39,5 +42,6 @@
         document.getElementById("textoPrevisao").textContent = "Erro ao carregar previsão.";
       });
   </script>
+  <!-- AQUI TERMINA O SCRIPT -->
 </body>
 </html>
