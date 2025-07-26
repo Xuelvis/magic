@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Previsão Misteriosa</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    #previsao {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    #loading {
+      font-size: 1rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div id="previsao">🔮 <span id="textoPrevisao">Carregando previsão...</span></div>
+  <div id="loading">Aguarde...</div>
+
+  <script>
+    fetch("https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/previsao.txt")
+      .then(response => response.text())
+      .then(texto => {
+        document.getElementById("textoPrevisao").textContent = texto.trim();
+        document.getElementById("loading").style.display = "none";
+      })
+      .catch(err => {
+        document.getElementById("textoPrevisao").textContent = "Erro ao carregar previsão.";
+      });
+  </script>
+</body>
+</html>
