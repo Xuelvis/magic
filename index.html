@@ -29,7 +29,7 @@
   <div id="loading">Aguarde...</div>
 
   <script>
-   fetch("https://raw.githubusercontent.com/Xuelvis/magia/main/previsao.txt?" + new Date().getTime())
+   fetch("https://raw.githubusercontent.com/xuelvis/magic/main/previsao.txt?" + new Date().getTime())
       .then(response => response.text())
       .then(texto => {
         document.getElementById("textoPrevisao").textContent = texto.trim();
